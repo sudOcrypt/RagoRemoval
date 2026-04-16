@@ -200,22 +200,21 @@ select, input, textarea { font-family: inherit; }
   gap: 28px;
 }
 .loader-logo img {
-  width: 220px;
-  border-radius: 28px;
-  background: rgba(255,255,255,0.04);
-  padding: 18px;
-  box-shadow:
-    0 0 0 1px rgba(34,197,94,0.2),
-    0 0 60px rgba(34,197,94,0.35),
-    0 20px 60px rgba(0,0,0,0.6);
+  width: 260px;
+  border-radius: 24px;
+  /* White outline only — no dark container */
+  outline: 2px solid rgba(255,255,255,0.35);
+  outline-offset: 3px;
   animation: pulse-logo 1.8s ease-in-out infinite;
 }
 @keyframes pulse-logo {
   0%, 100% {
-    box-shadow: 0 0 0 1px rgba(34,197,94,0.2), 0 0 40px rgba(34,197,94,0.25), 0 20px 60px rgba(0,0,0,0.6);
+    filter: drop-shadow(0 0 20px rgba(34,197,94,0.4));
+    outline-color: rgba(255,255,255,0.28);
   }
   50% {
-    box-shadow: 0 0 0 1px rgba(34,197,94,0.4), 0 0 80px rgba(34,197,94,0.55), 0 20px 60px rgba(0,0,0,0.7);
+    filter: drop-shadow(0 0 48px rgba(34,197,94,0.7));
+    outline-color: rgba(255,255,255,0.55);
   }
 }
 
@@ -273,35 +272,26 @@ select, input, textarea { font-family: inherit; }
   flex-shrink: 0;
 }
 
-/* Wrapper gives the rounded bg + glow */
+/* Nav logo — rounded, white outline, no dark container */
 .nav-logo-img-wrap {
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(34,197,94,0.3);
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  flex-shrink: 0;
-  box-shadow:
-    0 0 0 1px rgba(34,197,94,0.15),
-    0 0 24px rgba(34,197,94,0.25),
-    0 4px 16px rgba(0,0,0,0.5);
-  transition: box-shadow var(--transition);
-  padding: 4px;
-}
-.nav-logo:hover .nav-logo-img-wrap {
-  box-shadow:
-    0 0 0 1px rgba(34,197,94,0.4),
-    0 0 40px rgba(34,197,94,0.5),
-    0 4px 16px rgba(0,0,0,0.6);
 }
 .nav-logo-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: 72px;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  /* White outline only — no background box */
+  outline: 2px solid rgba(255,255,255,0.3);
+  outline-offset: 2px;
+  filter: drop-shadow(0 0 14px rgba(34,197,94,0.35));
+  transition: filter var(--transition), outline-color var(--transition);
+}
+.nav-logo:hover .nav-logo-img-wrap img {
+  filter: drop-shadow(0 0 28px rgba(34,197,94,0.65));
+  outline-color: rgba(255,255,255,0.55);
 }
 
 .nav-brand {
@@ -781,23 +771,6 @@ select, input, textarea { font-family: inherit; }
   font-size: 0.9rem;
   font-weight: 600;
   margin-top: auto;
-}
-
-/* Hauling card logo */
-.hauling-logo-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 4px;
-}
-.hauling-logo {
-  width: 130px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 12px rgba(34,197,94,0.4));
-  transition: filter var(--transition);
-}
-.service-card--featured:hover .hauling-logo {
-  filter: drop-shadow(0 0 24px rgba(34,197,94,0.7));
 }
 
 /* ─── ABOUT ─────────────────────────────────────────────────── */
@@ -1579,8 +1552,16 @@ a.contact-item:hover {
   max-width: 260px;
 }
 .footer-logo {
-  width: 80px;
-  filter: drop-shadow(0 0 12px var(--green-glow));
+  width: 100px;
+  height: auto;
+  border-radius: 14px;
+  outline: 2px solid rgba(255,255,255,0.25);
+  outline-offset: 2px;
+  filter: drop-shadow(0 0 14px rgba(34,197,94,0.35));
+  transition: filter var(--transition);
+}
+.footer-logo:hover {
+  filter: drop-shadow(0 0 24px rgba(34,197,94,0.6));
 }
 
 .footer-social {
@@ -1737,7 +1718,7 @@ a.contact-item:hover {
   .nav-links  { display: none; }
   .hamburger  { display: flex; }
   .nav-inner  { padding: 10px 18px; }
-  .nav-logo-img-wrap { width: 52px; height: 52px; border-radius: 12px; }
+  .nav-logo-img-wrap img { width: 56px; border-radius: 12px; }
   .nav-brand  { font-size: 1.1rem; }
 
   /* Hero */
@@ -1762,7 +1743,7 @@ a.contact-item:hover {
   .services-grid { grid-template-columns: 1fr; gap: 18px; }
   .service-card  { padding: 28px 24px; }
   .service-badge { top: 16px; right: 16px; }
-  .hauling-logo  { width: 100px; }
+
 
   /* Why us */
   .why-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
