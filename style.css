@@ -381,10 +381,11 @@ select, input, textarea { font-family: inherit; }
   padding: 16px 24px 28px;
   gap: 2px;
   z-index: 499;
-  transform: translateY(-110%);
-  transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
+  transform: translateY(-120%);
+  visibility: hidden;
+  transition: transform 0.38s cubic-bezier(0.4,0,0.2,1), visibility 0.38s;
 }
-.mobile-drawer.open { transform: translateY(0); }
+.mobile-drawer.open { transform: translateY(0); visibility: visible; }
 
 .drawer-link {
   display: block;
