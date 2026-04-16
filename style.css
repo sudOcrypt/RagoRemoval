@@ -285,13 +285,20 @@ select, input, textarea { font-family: inherit; }
   text-decoration: none;
 }
 
-/* Nav logo image — just the image, big and rounded */
-.nav-logo-img {
+/* Nav logo — fixed box, image scaled up inside, overflow clipped */
+.nav-logo-box {
+  width: 70px;
   height: 70px;
-  width: auto;
   border-radius: 12px;
-  display: block;
+  overflow: hidden;
   flex-shrink: 0;
+}
+.nav-logo-box img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin: -35px;
+  display: block;
 }
 
 /* Brand text */
@@ -1737,7 +1744,8 @@ a.contact-item:hover {
   .nav-links  { display: none; }
   .hamburger  { display: flex; }
   .nav-inner  { padding: 10px 18px; }
-  .nav-logo-img { height: 44px; border-radius: 10px; }
+  .nav-logo-box { width: 50px; height: 50px; border-radius: 10px; }
+  .nav-logo-box img { width: 100px; height: 100px; margin: -25px; }
   .nav-brand  { font-size: 1.1rem; }
 
   /* Hero */
