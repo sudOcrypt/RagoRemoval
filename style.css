@@ -260,10 +260,10 @@ select, input, textarea { font-family: inherit; }
 }
 
 #nav.scrolled {
-  background: rgba(9, 15, 9, 0.94);
+  background: rgba(8, 8, 8, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 var(--border), 0 8px 32px rgba(0,0,0,0.5);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.07), 0 8px 32px rgba(0,0,0,0.6);
 }
 
 .nav-inner {
@@ -371,7 +371,7 @@ select, input, textarea { font-family: inherit; }
   position: fixed;
   top: var(--nav-h);
   left: 0; right: 0;
-  background: rgba(9,15,9,0.97);
+  background: rgba(8,8,8,0.97);
   backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
   display: flex;
@@ -426,16 +426,16 @@ select, input, textarea { font-family: inherit; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(9, 15, 9, 0.65);
+  background: rgba(0, 0, 0, 0.60);
 }
 .hero-gradient {
   position: absolute;
   inset: 0;
   /* Atmospheric darkening only — no top-fade (nav is transparent) */
   background: linear-gradient(135deg,
-    rgba(9,15,9,0.85) 0%,
-    rgba(9,15,9,0.08) 50%,
-    rgba(9,15,9,0.75) 100%
+    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.06) 50%,
+    rgba(0,0,0,0.72) 100%
   );
 }
 
@@ -817,7 +817,7 @@ select, input, textarea { font-family: inherit; }
   inset: 0;
   border-radius: inherit;
   box-shadow: inset 0 0 0 1px rgba(34,197,94,0.15);
-  background: linear-gradient(to bottom, transparent 50%, rgba(9,15,9,0.6) 100%);
+  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.6) 100%);
 }
 
 .about-card {
