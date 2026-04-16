@@ -283,33 +283,29 @@ select, input, textarea { font-family: inherit; }
   flex-shrink: 0;
 }
 
-/* Nav logo — fixed 72×72 box, image scaled 2× inside (zoomed/cropped) */
+/* Nav logo — fixed 72×72 box, image scaled 2× via transform inside */
 .nav-logo-img-wrap {
   flex-shrink: 0;
   width: 72px;
   height: 72px;
   border-radius: 16px;
-  outline: 2px solid rgba(255,255,255,0.3);
+  outline: 2px solid rgba(255,255,255,0.28);
   outline-offset: 2px;
   overflow: hidden;
-  position: relative;
-  filter: drop-shadow(0 0 14px rgba(34,197,94,0.35));
-  transition: filter var(--transition), outline-color var(--transition);
+  /* NO drop-shadow — it bleeds out as a visible "green bar" at top of page */
+  transition: outline-color var(--transition);
 }
 .nav-logo-img-wrap img {
-  /* Render at 2× the box — centered, overflows are clipped */
-  position: absolute;
-  width: 160px;
-  height: 160px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  object-position: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* Scale the photo 2× inside the same box — overflow:hidden clips the edges */
+  transform: scale(2);
+  transform-origin: center center;
 }
 .nav-logo:hover .nav-logo-img-wrap {
-  filter: drop-shadow(0 0 28px rgba(34,197,94,0.65));
-  outline-color: rgba(255,255,255,0.55);
+  outline-color: rgba(255,255,255,0.6);
+  box-shadow: 0 0 16px rgba(34,197,94,0.4);
 }
 
 .nav-brand {
@@ -1738,7 +1734,7 @@ a.contact-item:hover {
   .hamburger  { display: flex; }
   .nav-inner  { padding: 10px 18px; }
   .nav-logo-img-wrap { width: 56px; height: 56px; border-radius: 12px; }
-  .nav-logo-img-wrap img { width: 120px; height: 120px; }
+  .nav-logo-img-wrap img { width: 100%; height: 100%; transform: scale(2); }
   .nav-brand  { font-size: 1.1rem; }
 
   /* Hero */

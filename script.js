@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
 
-    // Sticky nav style
-    if (y > 60) {
+    // Sticky nav style — only go opaque after scrolling past the hero fold
+    if (y > 100) {
       nav.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
