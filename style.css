@@ -287,9 +287,9 @@ select, input, textarea { font-family: inherit; }
 
 /* Nav logo image — just the image, big and rounded */
 .nav-logo-img {
-  height: 52px;
+  height: 70px;
   width: auto;
-  border-radius: 10px;
+  border-radius: 12px;
   display: block;
   flex-shrink: 0;
 }
