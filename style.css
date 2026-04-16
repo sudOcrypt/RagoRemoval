@@ -300,8 +300,6 @@ select, input, textarea { font-family: inherit; }
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transform: scale(2);
-  transform-origin: center center;
   display: block;
 }
 
