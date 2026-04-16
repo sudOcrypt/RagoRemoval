@@ -285,11 +285,11 @@ select, input, textarea { font-family: inherit; }
   text-decoration: none;
 }
 
-/* Logo image box — fixed 48×48, logo zoomed 2× inside */
+/* Logo image box */
 .nav-logo-img-wrap {
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
   border: 2px solid rgba(255,255,255,0.25);
   overflow: hidden;
   flex-shrink: 0;
