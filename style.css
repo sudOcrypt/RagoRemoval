@@ -315,7 +315,7 @@ select, input, textarea { font-family: inherit; }
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #fff;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.95);
   white-space: nowrap;
 }
 
@@ -332,6 +332,7 @@ select, input, textarea { font-family: inherit; }
   color: rgba(240,247,240,0.65);
   transition: color var(--transition);
   position: relative;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.9);
 }
 .nav-link::after {
   content: '';
@@ -426,16 +427,23 @@ select, input, textarea { font-family: inherit; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.60);
+  /* Fade FROM transparent at the top so the nav area looks truly invisible,
+     then darkens into the content area for readability */
+  background: linear-gradient(
+    to bottom,
+    transparent      0%,
+    transparent      8%,
+    rgba(0,0,0,0.45) 28%,
+    rgba(0,0,0,0.62) 100%
+  );
 }
 .hero-gradient {
   position: absolute;
   inset: 0;
-  /* Atmospheric darkening only — no top-fade (nav is transparent) */
   background: linear-gradient(135deg,
-    rgba(0,0,0,0.82) 0%,
-    rgba(0,0,0,0.06) 50%,
-    rgba(0,0,0,0.72) 100%
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.0)  55%,
+    rgba(0,0,0,0.55) 100%
   );
 }
 
