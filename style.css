@@ -1705,7 +1705,7 @@ a.contact-item:hover {
 /* ── Tablet ──────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .about-layout { grid-template-columns: 1fr; gap: 48px; }
-  .about-visual { max-width: 560px; margin: 0 auto; padding-bottom: 28px; }
+  .about-visual { max-width: 600px; margin: 0 auto; padding-bottom: 24px; padding-right: 24px; }
   .footer-grid  { grid-template-columns: 1fr 1fr; gap: 36px; }
   .why-grid     { grid-template-columns: repeat(2, 1fr); }
 
@@ -1769,9 +1769,9 @@ a.contact-item:hover {
   .why-icon { width: 52px; height: 52px; font-size: 1.4rem; }
 
   /* About */
-  .about-visual { max-width: 100%; margin-bottom: 24px; padding-bottom: 36px; }
-  .about-img-wrap { aspect-ratio: 16/10; }
-  .about-card { position: relative; bottom: auto; right: auto; margin-top: -24px; margin-left: auto; margin-right: auto; width: fit-content; }
+  .about-visual { max-width: 100%; padding-bottom: 24px; padding-right: 20px; }
+  .about-img-wrap { aspect-ratio: 4/3; }
+  .about-card { right: -10px; bottom: -16px; }
   .about-pillars { gap: 14px; }
 
   /* Contact form */
