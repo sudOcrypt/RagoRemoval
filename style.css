@@ -292,6 +292,9 @@ select, input, textarea { font-family: inherit; }
   border-radius: 12px;
   display: block;
   flex-shrink: 0;
+  /* Zoom in 5px worth without changing the box size */
+  clip-path: inset(5px round 12px);
+  margin: -5px;
 }
 
 /* Brand text */
