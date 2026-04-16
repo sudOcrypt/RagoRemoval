@@ -252,7 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (!valid) {
-        contactForm.querySelector('[required]:not([value=""])')?.focus();
+        const firstEmpty = [...contactForm.querySelectorAll('[required]')].find(f => !f.value.trim());
+        if (firstEmpty) firstEmpty.focus();
         return;
       }
 
@@ -302,6 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── SMOOTH ANCHOR CLICKS ─────────────────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
+      if (anchor.classList.contains('service-cta')) return;
       const target = document.querySelector(anchor.getAttribute('href'));
       if (target) {
         e.preventDefault();
@@ -370,6 +372,16 @@ document.addEventListener('DOMContentLoaded', () => {
   function closePopup() {
     if (popupOverlay) popupOverlay.classList.remove('active');
     document.body.style.overflow = '';
+
+    // Reset popup to fresh state so re-opening always shows the form
+    if (popupForm) {
+      popupForm.reset();
+      popupForm.classList.remove('hidden');
+      const submit = popupForm.querySelector('button[type="submit"]');
+      if (submit) { submit.innerHTML = 'Request My Free Pickup <i class="ri-arrow-right-line"></i>'; submit.disabled = false; }
+      popupForm.querySelectorAll('.popup-field').forEach(f => f.style.borderColor = '');
+    }
+    if (popupSuccess) popupSuccess.classList.remove('visible');
   }
 
   // Auto-open after 5 seconds (only once per session)
