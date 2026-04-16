@@ -395,13 +395,27 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closePopup();
   });
 
-  // Popup "Get a Free Quote" buttons also open modal
-  document.querySelectorAll('.nav-cta, .drawer-cta').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const href = btn.getAttribute('href');
-      if (href === '#contact') {
-        // Let the smooth scroll handle it — don't override
-      }
+  function openPopupWithService(serviceValue) {
+    if (serviceValue) {
+      const radio = popupOverlay.querySelector(`input[name="popup-service"][value="${serviceValue}"]`);
+      if (radio) radio.checked = true;
+    }
+    openPopup();
+  }
+
+  document.querySelectorAll('.service-card[data-service] .service-cta').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const card = link.closest('.service-card');
+      openPopupWithService(card.dataset.service);
+    });
+  });
+
+  document.querySelectorAll('.service-card[data-service]').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.service-cta')) return;
+      openPopupWithService(card.dataset.service);
     });
   });
 
