@@ -11,7 +11,7 @@
   --green-dim:    #16a34a;
   --green-glow:   rgba(34, 197, 94, 0.25);
   --green-glow-s: rgba(34, 197, 94, 0.12);
-  --bg:           #000000;
+  --bg:           #090f09;
   --bg-card:      #0f1a0f;
   --bg-card2:     #111d11;
   --border:       rgba(255,255,255,0.08);
@@ -402,11 +402,24 @@ select, input, textarea { font-family: inherit; }
 /* ─── HERO ──────────────────────────────────────────────────── */
 #hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;   /* svh avoids mobile browser chrome gap */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000 url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80') center/cover no-repeat;
+  /* overflow:visible so background paints correctly in all browsers */
+  overflow: visible;
+}
+
+/* The actual background lives in a pseudo-element so overflow never clips it */
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80');
+  background-size: cover;
+  background-position: center;
+  /* No fixed attachment — just a clean, reliable scroll */
 }
 
 .hero-bg {
@@ -418,16 +431,31 @@ select, input, textarea { font-family: inherit; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.52);
+  /* Transparent at the very top (nav zone) → dark below */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.0)  0%,
+    rgba(0,0,0,0.0)  10%,
+    rgba(0,0,0,0.50) 35%,
+    rgba(0,0,0,0.65) 100%
+  );
 }
-.hero-gradient { display: none; }
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(0,0,0,0.5) 0%,
+    rgba(0,0,0,0.0) 55%,
+    rgba(0,0,0,0.5) 100%
+  );
+}
 
 .hero-grid {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.07;
   background-image:
     linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
@@ -436,8 +464,35 @@ select, input, textarea { font-family: inherit; }
 }
 
 /* Orbs */
-/* Orbs hidden — glow was bleeding to top of viewport */
-.orb { display: none; }
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  z-index: 2;
+}
+.orb-1 {
+  width: 700px; height: 700px;
+  top: 30%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(34,197,94,0.15) 0%, transparent 70%);
+  animation: orb-pulse 6s ease-in-out infinite;
+}
+.orb-2 {
+  width: 400px; height: 400px;
+  bottom: -100px; right: -80px;
+  background: radial-gradient(circle, rgba(34,197,94,0.08) 0%, transparent 70%);
+  animation: orb-pulse 8s ease-in-out infinite reverse;
+}
+@keyframes orb-pulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50%       { opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
+}
+.orb-2 { animation: orb-pulse2 8s ease-in-out infinite reverse; }
+@keyframes orb-pulse2 {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 1; transform: scale(1.2); }
+}
 
 /* Particles */
 .particles {
