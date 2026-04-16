@@ -11,7 +11,7 @@
   --green-dim:    #16a34a;
   --green-glow:   rgba(34, 197, 94, 0.25);
   --green-glow-s: rgba(34, 197, 94, 0.12);
-  --bg:           #090f09;
+  --bg:           #000000;
   --bg-card:      #0f1a0f;
   --bg-card2:     #111d11;
   --border:       rgba(255,255,255,0.08);
@@ -402,24 +402,11 @@ select, input, textarea { font-family: inherit; }
 /* ─── HERO ──────────────────────────────────────────────────── */
 #hero {
   position: relative;
-  min-height: 100svh;   /* svh avoids mobile browser chrome gap */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* overflow:visible so background paints correctly in all browsers */
-  overflow: visible;
-}
-
-/* The actual background lives in a pseudo-element so overflow never clips it */
-#hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80');
-  background-size: cover;
-  background-position: center;
-  /* No fixed attachment — just a clean, reliable scroll */
+  background: #000 url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80') center/cover no-repeat;
 }
 
 .hero-bg {
@@ -431,23 +418,12 @@ select, input, textarea { font-family: inherit; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  /* Transparent at the very top (nav zone) → dark below */
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.0)  0%,
-    rgba(0,0,0,0.0)  10%,
-    rgba(0,0,0,0.50) 35%,
-    rgba(0,0,0,0.65) 100%
-  );
+  background: rgba(0,0,0,0.55);
 }
 .hero-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg,
-    rgba(0,0,0,0.5) 0%,
-    rgba(0,0,0,0.0) 55%,
-    rgba(0,0,0,0.5) 100%
-  );
+  background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, transparent 40%, rgba(0,0,0,0.3) 100%);
 }
 
 .hero-grid {
@@ -472,10 +448,10 @@ select, input, textarea { font-family: inherit; }
   z-index: 2;
 }
 .orb-1 {
-  width: 700px; height: 700px;
-  top: 30%; left: 50%;
+  width: 500px; height: 500px;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(34,197,94,0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(34,197,94,0.10) 0%, transparent 70%);
   animation: orb-pulse 6s ease-in-out infinite;
 }
 .orb-2 {
