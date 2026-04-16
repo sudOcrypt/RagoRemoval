@@ -421,14 +421,7 @@ select, input, textarea { font-family: inherit; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  /* Transparent at the very top (nav zone) → dark below */
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.0)  0%,
-    rgba(0,0,0,0.0)  10%,
-    rgba(0,0,0,0.50) 35%,
-    rgba(0,0,0,0.65) 100%
-  );
+  background: rgba(0,0,0,0.55);
 }
 .hero-gradient {
   position: absolute;
