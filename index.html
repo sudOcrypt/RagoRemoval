@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rago Removal – Junk Removal Services | Pennsylvania & New Jersey</title>
+  <meta name="description" content="Rago Removal offers professional junk removal, hauling, demolition, and residential cleanouts in Pennsylvania and New Jersey. Fast, affordable, and reliable." />
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════ LOADER -->
+  <div id="loader">
+    <div class="loader-logo">
+      <img src="logo.png" alt="Rago Removal" />
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ POPUP MODAL -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-modal" id="popupModal">
+      <button class="popup-close" id="popupClose" aria-label="Close"><i class="ri-close-line"></i></button>
+
+      <div class="popup-header">
+        <img src="logo.png" alt="Rago Removal" class="popup-logo" />
+        <div class="popup-badge"><i class="ri-calendar-check-line"></i> Quick Schedule</div>
+        <h2 class="popup-title">Schedule Your <span class="green">Free Pickup</span></h2>
+        <p class="popup-sub">Takes 30 seconds. We'll call to confirm.</p>
+      </div>
+
+      <form class="popup-form" id="popupForm" novalidate>
+        <div class="popup-service-grid">
+          <label class="service-choice">
+            <input type="radio" name="popup-service" value="residential" />
+            <span><i class="ri-home-4-line"></i> Residential</span>
+          </label>
+          <label class="service-choice">
+            <input type="radio" name="popup-service" value="hauling" />
+            <span><i class="ri-truck-2-line"></i> Hauling</span>
+          </label>
+          <label class="service-choice">
+            <input type="radio" name="popup-service" value="demolition" />
+            <span><i class="ri-hammer-line"></i> Demolition</span>
+          </label>
+          <label class="service-choice">
+            <input type="radio" name="popup-service" value="odd-jobs" />
+            <span><i class="ri-tools-line"></i> Odd Jobs</span>
+          </label>
+        </div>
+
+        <div class="popup-fields">
+          <div class="popup-field">
+            <i class="ri-user-line"></i>
+            <input type="text" name="popup-name" placeholder="Your name" required />
+          </div>
+          <div class="popup-field">
+            <i class="ri-phone-line"></i>
+            <input type="tel" name="popup-phone" placeholder="Phone number" required />
+          </div>
+          <div class="popup-field">
+            <i class="ri-calendar-2-line"></i>
+            <input type="date" name="popup-date" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full popup-submit">
+          Request My Free Pickup <i class="ri-arrow-right-line"></i>
+        </button>
+        <p class="popup-note">No spam. We'll only call to confirm your appointment.</p>
+      </form>
+
+      <div class="popup-success" id="popupSuccess">
+        <div class="popup-success-icon"><i class="ri-checkbox-circle-fill"></i></div>
+        <h3>You're All Set!</h3>
+        <p>We'll call you within the hour to confirm your pickup. Thank you!</p>
+        <button class="btn btn-primary" id="popupSuccessClose">Got it!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ NAV -->
+  <header id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Rago Removal home">
+        <div class="nav-logo-img-wrap">
+          <img src="logo.png" alt="Rago Removal logo" />
+        </div>
+        <span class="nav-brand">RAGO <span class="green">REMOVAL</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#why-us" class="nav-link">Why Us</a>
+        <a href="#testimonials" class="nav-link">Reviews</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact" class="btn btn-primary nav-cta">Get a Free Quote</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="#services" class="drawer-link">Services</a>
+    <a href="#about" class="drawer-link">About</a>
+    <a href="#why-us" class="drawer-link">Why Us</a>
+    <a href="#testimonials" class="drawer-link">Reviews</a>
+    <a href="#contact" class="drawer-link">Contact</a>
+    <a href="#contact" class="btn btn-primary drawer-cta">Get a Free Quote</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ HERO -->
+  <section id="hero">
+    <!-- Fixed background layers -->
+    <div class="hero-bg" id="heroBg">
+      <div class="hero-overlay"></div>
+      <div class="hero-gradient"></div>
+    </div>
+
+    <!-- Grid overlay -->
+    <div class="hero-grid"></div>
+
+    <!-- Glowing orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Content -->
+    <div class="hero-content" id="heroContent">
+      <div class="badge animate-fadeup" data-delay="0">
+        <i class="ri-truck-line"></i> Pennsylvania & New Jersey
+      </div>
+
+      <h1 class="hero-title animate-fadeup" data-delay="100">
+        JUNK GONE.<br />
+        <span class="gradient-text">STRESS GONE.</span>
+      </h1>
+
+      <p class="hero-sub animate-fadeup" data-delay="200">
+        Rago Removal handles everything from residential cleanouts to full-scale hauling,
+        demolition, and odd jobs — fast, affordable, and done right the first time.
+      </p>
+
+      <div class="hero-btns animate-fadeup" data-delay="300">
+        <a href="#contact" class="btn btn-primary btn-lg">
+          Get a Free Quote <i class="ri-arrow-right-line"></i>
+        </a>
+        <a href="#services" class="btn btn-ghost btn-lg">
+          Our Services
+        </a>
+      </div>
+
+      <!-- Trust stats -->
+      <div class="hero-stats animate-fadein" data-delay="600">
+        <div class="stat">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Jobs Completed</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">5★</span>
+          <span class="stat-label">Rated Service</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">PA &amp; NJ</span>
+          <span class="stat-label">Areas Served</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">Same Day</span>
+          <span class="stat-label">Available</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+      <div class="scroll-mouse">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ SERVICES -->
+  <section id="services" class="section">
+    <!-- Background glow -->
+    <div class="section-glow section-glow--right"></div>
+
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">What We Do</span>
+        <h2 class="section-title">Our <span class="green">Services</span></h2>
+        <p class="section-sub">Professional removal and hauling services tailored to your needs. We handle the heavy lifting so you don't have to.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Residential -->
+        <div class="service-card reveal" data-delay="0">
+          <div class="service-icon-wrap">
+            <div class="service-icon">
+              <i class="ri-home-4-line"></i>
+            </div>
+            <div class="service-icon-glow"></div>
+          </div>
+          <div class="service-body">
+            <h3 class="service-title">Residential Cleanouts</h3>
+            <p class="service-desc">From garage cleanouts to full estate removals, we clear out unwanted items quickly and responsibly — leaving your space fresh and clutter-free.</p>
+            <ul class="service-list">
+              <li><i class="ri-check-line"></i> Garage & basement cleanouts</li>
+              <li><i class="ri-check-line"></i> Estate & foreclosure cleanouts</li>
+              <li><i class="ri-check-line"></i> Furniture & appliance removal</li>
+              <li><i class="ri-check-line"></i> Yard debris & bulk waste</li>
+            </ul>
+            <a href="#contact" class="service-cta">Get a Quote <i class="ri-arrow-right-line"></i></a>
+          </div>
+          <div class="service-badge">Available Now</div>
+        </div>
+
+        <!-- Hauling -->
+        <div class="service-card service-card--featured reveal" data-delay="100">
+          <div class="hauling-logo-wrap">
+            <img src="logo.png" alt="Rago Removal" class="hauling-logo" />
+          </div>
+          <div class="service-icon-wrap">
+            <div class="service-icon">
+              <i class="ri-truck-2-line"></i>
+            </div>
+            <div class="service-icon-glow"></div>
+          </div>
+          <div class="service-body">
+            <h3 class="service-title">Hauling</h3>
+            <p class="service-desc">Need heavy or bulk materials moved? Our hauling service handles loads of any size — construction debris, scrap metal, appliances, and more.</p>
+            <ul class="service-list">
+              <li><i class="ri-check-line"></i> Construction debris removal</li>
+              <li><i class="ri-check-line"></i> Scrap metal & e-waste</li>
+              <li><i class="ri-check-line"></i> Hot tub & shed removal</li>
+              <li><i class="ri-check-line"></i> Load & haul services</li>
+            </ul>
+            <a href="#contact" class="service-cta">Get a Quote <i class="ri-arrow-right-line"></i></a>
+          </div>
+          <div class="service-badge service-badge--featured">Most Popular</div>
+        </div>
+
+        <!-- Demolition -->
+        <div class="service-card reveal" data-delay="200">
+          <div class="service-icon-wrap">
+            <div class="service-icon">
+              <i class="ri-hammer-line"></i>
+            </div>
+            <div class="service-icon-glow"></div>
+          </div>
+          <div class="service-body">
+            <h3 class="service-title">Demolition</h3>
+            <p class="service-desc">Small-scale demolition and teardown services for structures, interior build-outs, and more — handled safely, efficiently, and cleanly.</p>
+            <ul class="service-list">
+              <li><i class="ri-check-line"></i> Shed & deck demolition</li>
+              <li><i class="ri-check-line"></i> Interior wall removal</li>
+              <li><i class="ri-check-line"></i> Fence & structure teardown</li>
+              <li><i class="ri-check-line"></i> Debris hauling included</li>
+            </ul>
+            <a href="#contact" class="service-cta">Get a Quote <i class="ri-arrow-right-line"></i></a>
+          </div>
+          <div class="service-badge">Available Now</div>
+        </div>
+
+        <!-- Odd Jobs -->
+        <div class="service-card reveal" data-delay="300">
+          <div class="service-icon-wrap">
+            <div class="service-icon">
+              <i class="ri-tools-line"></i>
+            </div>
+            <div class="service-icon-glow"></div>
+          </div>
+          <div class="service-body">
+            <h3 class="service-title">Odd Jobs</h3>
+            <p class="service-desc">Got something that doesn't fit neatly into a category? We take on the projects others won't. If you need it done, we'll get it done.</p>
+            <ul class="service-list">
+              <li><i class="ri-check-line"></i> Moving assistance</li>
+              <li><i class="ri-check-line"></i> Heavy lifting & labor</li>
+              <li><i class="ri-check-line"></i> Outdoor cleanup</li>
+              <li><i class="ri-check-line"></i> Custom requests welcome</li>
+            </ul>
+            <a href="#contact" class="service-cta">Get a Quote <i class="ri-arrow-right-line"></i></a>
+          </div>
+          <div class="service-badge">Available Now</div>
+        </div>
+
+        <!-- Commercial - Coming Soon -->
+        <div class="service-card service-card--soon reveal" data-delay="400">
+          <div class="service-icon-wrap">
+            <div class="service-icon">
+              <i class="ri-building-2-line"></i>
+            </div>
+            <div class="service-icon-glow"></div>
+          </div>
+          <div class="service-body">
+            <h3 class="service-title">Commercial Services</h3>
+            <p class="service-desc">Scalable junk removal and cleanout solutions designed for businesses, property managers, contractors, and commercial facilities.</p>
+            <ul class="service-list">
+              <li><i class="ri-check-line"></i> Office cleanouts</li>
+              <li><i class="ri-check-line"></i> Retail & warehouse removal</li>
+              <li><i class="ri-check-line"></i> Property management support</li>
+              <li><i class="ri-check-line"></i> Recurring service plans</li>
+            </ul>
+            <div class="coming-soon-tag">
+              <i class="ri-time-line"></i> Coming Soon
+            </div>
+          </div>
+          <div class="service-badge service-badge--soon">Coming Soon</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ ABOUT -->
+  <section id="about" class="section section--dark">
+    <div class="section-glow section-glow--left"></div>
+    <div class="container">
+      <div class="about-layout">
+
+        <div class="about-visual reveal">
+          <div class="about-img-wrap">
+            <div class="about-img" style="background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80')"></div>
+            <div class="about-img-glow"></div>
+          </div>
+          <div class="about-card">
+            <i class="ri-map-pin-2-line"></i>
+            <div>
+              <strong>Serving PA &amp; NJ</strong>
+              <span>Licensed &amp; Insured</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content reveal" data-delay="150">
+          <span class="eyebrow">Who We Are</span>
+          <h2 class="section-title">Built on Hard Work &amp; <span class="green">Reliability</span></h2>
+          <p class="about-text">
+            Rago Removal was founded on a simple belief: every customer deserves a crew that shows up on time, works hard, and leaves the job site spotless. We're a locally owned and operated junk removal business proudly serving Pennsylvania and New Jersey.
+          </p>
+          <p class="about-text">
+            Whether you've got a single couch or an entire property to clear out, we bring the same dedication and professionalism to every single job. No hidden fees, no hassle — just honest work at fair prices.
+          </p>
+
+          <div class="about-pillars">
+            <div class="pillar">
+              <i class="ri-shield-check-line"></i>
+              <div>
+                <strong>Licensed &amp; Insured</strong>
+                <span>Fully covered for your peace of mind</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <i class="ri-leaf-line"></i>
+              <div>
+                <strong>Eco-Friendly Disposal</strong>
+                <span>We recycle and donate when possible</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <i class="ri-calendar-check-line"></i>
+              <div>
+                <strong>Flexible Scheduling</strong>
+                <span>Same-day and weekend appointments</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="btn btn-primary">Schedule a Pickup <i class="ri-arrow-right-line"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ WHY US -->
+  <section id="why-us" class="section">
+    <div class="section-glow section-glow--center"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Why Choose Us</span>
+        <h2 class="section-title">The Rago <span class="green">Difference</span></h2>
+        <p class="section-sub">We're not just another junk removal company. Here's what sets us apart.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal" data-delay="0">
+          <div class="why-icon"><i class="ri-timer-flash-line"></i></div>
+          <h3>Fast Response</h3>
+          <p>We respond within the hour and offer same-day service. When you need it gone, we get there fast.</p>
+        </div>
+        <div class="why-card reveal" data-delay="80">
+          <div class="why-icon"><i class="ri-price-tag-3-line"></i></div>
+          <h3>Upfront Pricing</h3>
+          <p>No surprises, no hidden fees. You get a clear quote before we start — and we stick to it.</p>
+        </div>
+        <div class="why-card reveal" data-delay="160">
+          <div class="why-icon"><i class="ri-team-line"></i></div>
+          <h3>Professional Crew</h3>
+          <p>Our team is courteous, uniformed, and background-checked. We treat your property with respect.</p>
+        </div>
+        <div class="why-card reveal" data-delay="240">
+          <div class="why-icon"><i class="ri-recycle-line"></i></div>
+          <h3>Responsible Disposal</h3>
+          <p>We donate usable items and recycle whenever possible, keeping waste out of landfills.</p>
+        </div>
+        <div class="why-card reveal" data-delay="320">
+          <div class="why-icon"><i class="ri-map-pin-line"></i></div>
+          <h3>Local Experts</h3>
+          <p>We know PA and NJ inside and out. Local knowledge means faster service and fewer headaches.</p>
+        </div>
+        <div class="why-card reveal" data-delay="400">
+          <div class="why-icon"><i class="ri-star-line"></i></div>
+          <h3>5-Star Rated</h3>
+          <p>Our customers keep coming back and sending their friends. Our reputation speaks for itself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ PROCESS -->
+  <section id="process" class="section section--dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">How It Works</span>
+        <h2 class="section-title">3 Simple <span class="green">Steps</span></h2>
+        <p class="section-sub">Getting rid of your junk has never been easier.</p>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step reveal" data-delay="0">
+          <div class="step-num">01</div>
+          <div class="step-icon"><i class="ri-phone-line"></i></div>
+          <h3>Call or Book Online</h3>
+          <p>Give us a call or fill out our quick quote form. Tell us what you need removed and we'll get you a free, no-obligation estimate.</p>
+        </div>
+        <div class="process-connector reveal" data-delay="100"></div>
+        <div class="process-step reveal" data-delay="150">
+          <div class="step-num">02</div>
+          <div class="step-icon"><i class="ri-calendar-2-line"></i></div>
+          <h3>Schedule Your Pickup</h3>
+          <p>Pick a time that works for you — including same-day and weekend slots. We show up on time, every time, ready to work.</p>
+        </div>
+        <div class="process-connector reveal" data-delay="250"></div>
+        <div class="process-step reveal" data-delay="300">
+          <div class="step-num">03</div>
+          <div class="step-icon"><i class="ri-checkbox-circle-line"></i></div>
+          <h3>We Handle the Rest</h3>
+          <p>Our crew loads, hauls, and disposes of everything. We leave your space spotless. You don't lift a finger.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ TESTIMONIALS -->
+  <section id="testimonials" class="section">
+    <div class="section-glow section-glow--right"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">What Customers Say</span>
+        <h2 class="section-title">Real <span class="green">Reviews</span></h2>
+        <p class="section-sub">Don't just take our word for it. Here's what our customers have to say.</p>
+      </div>
+
+      <div class="reviews-track-wrap">
+        <div class="reviews-track" id="reviewsTrack">
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Rago Removal showed up within two hours of my call. They cleared out my entire basement in under 90 minutes. Absolutely professional — I'd recommend them to anyone."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">MR</div>
+              <div>
+                <strong>Mike R.</strong>
+                <span>Philadelphia, PA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Fair pricing, no games. They gave me a quote, showed up when they said they would, and did exactly what was promised. The team was friendly and efficient."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">ST</div>
+              <div>
+                <strong>Sarah T.</strong>
+                <span>Cherry Hill, NJ</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Had an old shed torn down and hauled away. They handled everything top to bottom. The yard was cleaner when they left than before they started. Unreal service."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">DJ</div>
+              <div>
+                <strong>Dave J.</strong>
+                <span>Bucks County, PA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"I needed help moving some heavy furniture and cleaning out my garage before a move. Rago's crew was incredible — fast, careful, and friendly. Will absolutely use again."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">LP</div>
+              <div>
+                <strong>Lisa P.</strong>
+                <span>Trenton, NJ</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Best money I've spent. Years worth of junk gone in one afternoon. Seriously, call these guys before you try to do it yourself. Worth every penny."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">JM</div>
+              <div>
+                <strong>James M.</strong>
+                <span>Allentown, PA</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="reviews-nav">
+          <button class="review-btn" id="reviewPrev" aria-label="Previous review">
+            <i class="ri-arrow-left-line"></i>
+          </button>
+          <div class="review-dots" id="reviewDots"></div>
+          <button class="review-btn" id="reviewNext" aria-label="Next review">
+            <i class="ri-arrow-right-line"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ CONTACT -->
+  <section id="contact" class="section section--dark">
+    <div class="section-glow section-glow--center"></div>
+    <div class="container">
+
+      <div class="contact-layout">
+
+        <div class="contact-info reveal">
+          <span class="eyebrow">Get In Touch</span>
+          <h2 class="section-title">Ready to <span class="green">Clear It Out?</span></h2>
+          <p class="contact-intro">Get your free, no-obligation quote today. We respond fast — usually within the hour. Same-day appointments available.</p>
+
+          <div class="contact-details">
+            <a href="tel:+1XXXXXXXXXX" class="contact-item">
+              <div class="contact-icon"><i class="ri-phone-fill"></i></div>
+              <div>
+                <strong>Call or Text</strong>
+                <span>(XXX) XXX-XXXX</span>
+              </div>
+            </a>
+            <a href="mailto:info@ragoremoval.com" class="contact-item">
+              <div class="contact-icon"><i class="ri-mail-fill"></i></div>
+              <div>
+                <strong>Email Us</strong>
+                <span>info@ragoremoval.com</span>
+              </div>
+            </a>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="ri-map-pin-fill"></i></div>
+              <div>
+                <strong>Service Area</strong>
+                <span>Pennsylvania &amp; New Jersey</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="ri-time-fill"></i></div>
+              <div>
+                <strong>Hours</strong>
+                <span>Mon–Sat: 7am–7pm &nbsp;|&nbsp; Sun: By Appointment</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-social">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal" data-delay="150">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" placeholder="Smith" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(xxx) xxx-xxxx" />
+            </div>
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select a service…</option>
+                <option value="residential">Residential Cleanout</option>
+                <option value="hauling">Hauling</option>
+                <option value="demolition">Demolition</option>
+                <option value="odd-jobs">Odd Jobs</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Tell Us More</label>
+              <textarea id="message" name="message" rows="4" placeholder="Describe what you need removed, approximate size, location, etc."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              Send My Free Quote Request <i class="ri-send-plane-line"></i>
+            </button>
+            <p class="form-note"><i class="ri-shield-check-line"></i> We never share your info. No spam, ever.</p>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon"><i class="ri-checkbox-circle-fill"></i></div>
+            <h3>Message Sent!</h3>
+            <p>Thanks for reaching out! We'll get back to you within the hour during business hours.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ FOOTER -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="footer-glow"></div>
+      <div class="container">
+        <div class="footer-grid">
+
+          <div class="footer-brand">
+            <img src="logo.png" alt="Rago Removal" class="footer-logo" />
+            <p>Professional junk removal, hauling, and demolition services serving Pennsylvania and New Jersey.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+              <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="#services">Residential Cleanouts</a>
+            <a href="#services">Hauling</a>
+            <a href="#services">Demolition</a>
+            <a href="#services">Odd Jobs</a>
+            <a href="#services" class="footer-soon">Commercial <span>Soon</span></a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#about">About Us</a>
+            <a href="#why-us">Why Choose Us</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#process">How It Works</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Service Areas</h4>
+            <span>Philadelphia, PA</span>
+            <span>Bucks County, PA</span>
+            <span>Montgomery County, PA</span>
+            <span>Cherry Hill, NJ</span>
+            <span>Trenton, NJ</span>
+            <span>&amp; Surrounding Areas</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Rago Removal. All rights reserved.</p>
+        <p>Designed with <span class="green">care</span> for Pennsylvania &amp; New Jersey.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="ri-arrow-up-line"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
